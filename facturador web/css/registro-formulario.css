@@ -1,0 +1,135 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: cuerpo;
+}
+@font-face {
+    font-family: especial;
+    src: url(../fuentes/BrunoAceSC-Regular.ttf);
+}
+@font-face {
+    font-family: cuerpo;
+    src: url(../fuentes/PlayfairDisplay-VariableFont_wght.ttf);
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.contenedor{
+    width: 60%;
+    height: 550px;
+    margin-left: 20%;
+    margin-top: 5%;
+    padding-top: 1%;
+    background-color: darkslategrey;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.8) ;
+}
+.contenedor div{
+    display: grid;
+}
+.contenedor div h3{
+    margin-left: 5%;
+    width: 130%;
+    font-size: 150%;
+}
+.contenedor input{
+    font-size: 130%;
+    height: 80%;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+.izq{
+    float: left;
+    margin-left: 3%;
+    margin-top: 6%;
+    line-height: 400%;
+}
+.izq input{
+    width: 115%;
+}
+.der{
+    float: right;
+    margin-right: 25%;
+    margin-top: 6%;
+    line-height: 400%;
+}
+.der input{
+    width: 165%;
+}
+#Registrar{
+    font-size: 32px;
+    border-radius: 15px;
+    width: 20%;
+    height: 10%;
+    position: absolute;
+    bottom: 12%;
+    left: 40%;
+    background-color: aquamarine;
+    padding-right: 18%;
+    color: black;
+    cursor: pointer;
+}
+.uno{
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    position: absolute;
+    right: 5%;
+    top: 40%;
+    margin-top: 3px;
+    cursor: pointer;
+}
+.dos{
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    position: absolute;
+    right: 5%;
+    top: 58%;
+    cursor: pointer;
+}
+.estado{
+    position: fixed;
+    top: 5%;
+    right: 3%;  
+    border-radius: 50%; 
+}
+.estado p{
+    font-family: especial;
+}
+.bien{
+    color: green;
+    background-color: aquamarine;
+}
+.mal{
+   color: red;
+   background-color: brown;
+}
+.mensaje{
+    text-align: center;
+    width: 56%;
+    position: fixed;
+    top: 4%;
+    left: 22%;
+    color: white;
+    border-radius: 10px;
+}
+.bueno{
+    background-color: rgb(0, 128, 100);
+}
+.malo{
+    background-color: rgb(255, 0, 0);
+}
+.advert{
+    text-align: center;
+    width: 56%;
+    position: fixed;
+    top: 4%;
+    left: 22%;
+    color: white;
+    border-radius: 10px;
+    background-color: red;
+}
