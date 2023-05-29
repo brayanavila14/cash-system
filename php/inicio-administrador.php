@@ -1,11 +1,5 @@
 <?php
         session_start();
-        // Verificar si el usuario ha iniciado sesión
-        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-        // El usuario no ha iniciado sesión, redirigirlo a index.php
-        header("Location: ../index.php");
-       exit;
-        }
             // Verificar si existe un mensaje en la variable de sesión
             if (isset($_SESSION['mensaje'])) {
             echo $_SESSION['mensaje'];

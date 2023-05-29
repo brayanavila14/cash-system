@@ -38,8 +38,6 @@ if (isset($_POST['ingresar'])) {
 
             //se verifica si la contraseña es correcta
             if ($info1 && $info1['Contraseña'] === $password) {
-                 // Si la validación y autenticación son exitosas, se establece la sesión del usuario
-                $_SESSION['loggedin'] = true;
                 $_SESSION['nombre'] = $name;
                 $_SESSION['contraseña'] = $password;
                 $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';
@@ -47,8 +45,6 @@ if (isset($_POST['ingresar'])) {
                 header("Location: php/inicio-administrador.php");
                 exit; // Es importante incluir la instrucción exit para detener la ejecución del script después de la redirección.
             } elseif ($info2 && $info2['Contraseña'] === $password) {
-                 // Si la validación y autenticación son exitosas, se establece la sesión del usuario
-                $_SESSION['loggedin'] = true;
                 $_SESSION['nombre'] = $name;
                 $_SESSION['contraseña'] = $password;
                 $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';

@@ -17,7 +17,7 @@
             // primero divido en codigo en dos partes, una que va a hacer la especial y la otra la común.
 
             // parte especial
-            $part1 = substr(str_shuffle('0123456789'), 0, 4);
+            $part1 = substr('hola', 0,4 );
 
             // parte común
             $part2 = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDFGHIFKLMNOPQRSTUVWXYZ0123456789'), 0, 8);

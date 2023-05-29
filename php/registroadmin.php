@@ -80,7 +80,12 @@ if (isset($_POST['registra'])) {
                 email varchar (255) NOT NULL, PRIMARY KEY(ID_empleado),
                 FOREIGN KEY(nombre_empresa) REFERENCES administrador(ID) );";
             $resultinventario = mysqli_query($conexion, $createinventorio);
-        
+
+            // se verifica si el usuario se registro
+            if ($resultinventario) {
+                $insertregist =  "INSERT INTO registro_tabla(Nombre_tablas) VALUES ('empleados_$name')";
+                $resultregist =  mysqli_query($conexion, $insertregist);
+            }
         header("Location: ../index.php");
         $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Registro con exito, bienvenido' . $name . '!</div>';
         exit;
