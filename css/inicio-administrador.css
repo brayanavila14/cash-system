@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: cuerpo;
+}
+@font-face {
+    font-family: cuerpo;
+    src: url(../fuentes/BrunoAceSC-Regular.ttf);
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.contenedor{
+    display: grid;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5%;
+    background-color: darkslategrey;
+    border: 3px outset rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+}
+.contenedor a{
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 13%;
+    margin-top: 13%;
+    border-radius: 20px;
+}
+.contenedor a button{
+    background-color: aquamarine;
+    width: 100%;
+    font-size: 180%;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.contenedor a button img{
+    float: left;
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-bottom: 5px;
+}
+.contenedor a button p{
+    margin-right: 30px;
+    margin-top: 10px;
+}
+hr{
+    width: 80%;
+    margin-left: 10%;
+}
+.imagenlogo{
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 2%;
+    right: 2%;
+    border-radius: 50%;
+    border: 1px rgba(0, 0, 0, 0.6) outset;
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.6);
+}
+.menuoculto{
+    position: fixed;
+    top: 10%;
+    right: 2%;
+    background-color: rgb(220, 220, 220);
+    width: 18%;
+    border: 1px rgba(0, 0, 0, 0.8) outset;
+    border-radius: 10px;
+    display: none;
+}
+.menuoculto img{
+    width: 96%;
+    height: 100px;
+    margin-top: 5px;
+    margin-left: 2%;
+    border-radius: 5px;
+    border: 1px rgba(0, 0, 0, 0.6) unset;
+}
+.menuoculto h3{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+.cargo{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.opc{
+    width: 145px;
+    margin-top: 10px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    margin-left: 43px;
+    margin-right: 50px;
+}
+.cuenta{
+    margin-left: 50px;
+}
+.cerrar{
+    padding-left: 23px;
+}
+.opc a:hover{
+    background-color: rgb(78, 78, 78, 0.6);
+    border-radius: 10px;
+    color: white;
+}
+.opc a{
+    text-decoration: none;
+    color: black;
+}
+.menuvisto{
+    display: block;
+}
+.mensaje-exito {
+    position: fixed;
+    top: 5%;
+    left: 32%;
+    width: 36%;
+    text-align: center;
+    background-color: #38b759;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 3s ease-in-out, transform 3s ease-in-out;
+    animation: saltar 3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes saltar {
+0% {
+    transform: translateY(0);
+}
+50% {
+    transform: translateY(8px);
+}
+100% {
+    transform: translateY(0);
+}
+}
+
