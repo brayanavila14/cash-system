@@ -33,7 +33,7 @@ header p {
 .ing-reg {
     background-color: #aecefa;
     width: 40%;
-    margin: 4% auto;
+    margin: 3% auto;
     padding: 20px;
     text-align: center;
     border-radius: 20px;
@@ -130,5 +130,6 @@ hr {
 }
 100% {
     transform: translateY(0);
+    opacity: 0;
 }
 }

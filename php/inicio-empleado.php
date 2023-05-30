@@ -1,3 +1,16 @@
+<?php
+        session_start();
+
+        if (!$_SESSION['nombre']) {
+
+            header("Location: ../index.php");
+            exit;
+            // Verificar si existe un mensaje en la variable de sesión
+        } elseif (isset($_SESSION['mensaje'])) {
+            echo $_SESSION['mensaje'];
+            unset($_SESSION['mensaje']); // Limpiar el mensaje de la variable de sesión para que no se muestre nuevamente en futuras visitas
+            }
+    ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,22 +36,6 @@
     <div class="contenedor">
         <a href="caja.html"><button><img src="../imagenes/caja-registradora.png"><p>Caja</p></button></a>
     </div>
-    <?php
-        session_start();
-
-        // Verificar si el usuario ha iniciado sesión
-        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-        // El usuario no ha iniciado sesión, redirigirlo a index.php
-        header("Location: ../index.php");
-       exit;
-        }
-
-        // Verificar si existe un mensaje en la variable de sesión
-        if (isset($_SESSION['mensaje'])) {
-        echo $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']); // Limpiar el mensaje de la variable de sesión para que no se muestre nuevamente en futuras visitas
-        }
-    ?>
     <script src="../js/menuoculto.js"></script>
 </body>
 </html>

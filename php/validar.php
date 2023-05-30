@@ -9,51 +9,62 @@ include("base-de-datos.php");
 if (isset($_POST['ingresar'])) {
 
     // se guardan las variables...
+    $empresa = trim($_POST['nameempresa']);
     $name = trim($_POST['name']);
     $password = trim($_POST['password']);
 
-    //si el usuario y la contraseña están vacíos...
-    if (empty($name) && empty($password)) {
+    //si el nombre de la empresa, el usuario y la contraseña están vacíos...
+    if (empty($empresa) && empty($name) && empty($password)) {
         echo '<div class="mensaje-error">¡No has escrito nada!</div>';
+    } elseif (empty($empresa)) {
+        echo '<div class="mensaje-error">¡No has escrito el nombre de la empresa!</div>';
     } elseif (empty($name)) {
-        echo '<div class="mensaje-error usuario">¡No has escrito el usuario!</div>';
+        echo '<div class="mensaje-error">¡No has escrito el usuario!</div>';
     } elseif (empty($password)) {
-        echo '<div class="mensaje-error contraseña">¡No has escrito la contraseña!</div>';
+        echo '<div class="mensaje-error">¡No has escrito la contraseña!</div>';
     } else {
-
+        
         //se escribe el código MySQL para seleccionar los datos que queremos.
         $consult1 = "SELECT usuario, Contraseña FROM administrador WHERE usuario='$name' LIMIT 1";
-        $consult2 = "SELECT usuario, Contraseña FROM empleados WHERE usuario = '$name' LIMIT 1";
-
         //se hace la consulta a la base de datos.
         $result1 = mysqli_query($conexion, $consult1);
+
+        //se escribe el código MySQL para seleccionar los datos que queremos.
+        $consult2 = "SELECT usuario, Contraseña FROM $empresa WHERE usuario = '$name' LIMIT 1";
+        //se hace la consulta a la base de datos.
         $result2 = mysqli_query($conexion, $consult2);
 
-        //se verifica si no hay filas con los datos guardados en las variables...
-        if (mysqli_num_rows($result1) === 0 && mysqli_num_rows($result2) === 0) {
-            echo '<div class="mensaje-error usuario">¡El usuario ' . $name . ' no existe, REGISTRATE!</div>';
-        } else {
-            $info1 = mysqli_fetch_assoc($result1);
-            $info2 = mysqli_fetch_assoc($result2);
+            
+             //se verifica si no hay filas con los datos guardados en las variables...
+            if (mysqli_num_rows($result1) === 0 && mysqli_num_rows($result2) === 0) {
+                echo '<div class="mensaje-error usuario">¡El usuario ' . $name . ' no existe, REGISTRATE!</div>';
+            } else {
+                $info1 = mysqli_fetch_assoc($result1);
+                $info2 = mysqli_fetch_assoc($result2);
 
-            //se verifica si la contraseña es correcta
-            if ($info1 && $info1['Contraseña'] === $password) {
+                //se verifica si la contraseña es correcta
+                if ($info1 && $info1['Contraseña'] === $password) {
+                    $_SESSION['nombre'] = $name;
+                    $_SESSION['contraseña'] = $password;
+                    $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';
+                    // Redirigir a otra página 
+                    header("Location: php/inicio-empleado.php");
+                    exit; // Es importante incluir la instrucción exit para detener la ejecución del script después de la redirección.
+                } else {
+                    echo '<div class="mensaje-error contraseña">' . $name . ' La contraseña es incorrecta.</div>';
+                }
+
+                //se verifica si la contraseña es correcta
+                if ($info2 && $info2['Contraseña'] === $password) {
                 $_SESSION['nombre'] = $name;
                 $_SESSION['contraseña'] = $password;
                 $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';
                 // Redirigir a otra página
                 header("Location: php/inicio-administrador.php");
                 exit; // Es importante incluir la instrucción exit para detener la ejecución del script después de la redirección.
-            } elseif ($info2 && $info2['Contraseña'] === $password) {
-                $_SESSION['nombre'] = $name;
-                $_SESSION['contraseña'] = $password;
-                $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';
-                // Redirigir a otra página 
-                header("Location: php/inicio-empleado.php");
-                exit; // Es importante incluir la instrucción exit para detener la ejecución del script después de la redirección.
-            } else {
-                echo '<div class="mensaje-error contraseña">' . $name . ' La contraseña es incorrecta.</div>';
-            }
+                } else {
+                    echo '<div class="mensaje-error contraseña">' . $name . ' La contraseña es incorrecta.</div>';
+                }
         }
     }
 }

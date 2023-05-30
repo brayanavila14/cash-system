@@ -14,10 +14,10 @@
     </header>
     <div class="ing-reg">
         <h1>Cash system</h1>
-        <form id="formulario" method="post">
-            <input type="text" placeholder="Usuario" name="name" id="usuario" autocomplete="off">
-            <input type="password" placeholder="Contraseña" name="password" id="clave" autocomplete="off">
-            <div class="ojo" onclick="togglePasswordVisibility()"></div>
+        <form method="post">
+            <input type="text" placeholder="Nombre de la empresa" name="nameempresa" autocomplete="off">
+            <input type="text" placeholder="Usuario" name="name" autocomplete="off">
+            <input type="password" placeholder="Contraseña" name="password" autocomplete="off">
             <input type="submit" id="ing" name="ingresar" value="Ingresar">
         </form>
         <hr>

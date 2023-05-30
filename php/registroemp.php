@@ -11,7 +11,7 @@ if (isset($_POST['registra'])) {
     $correo = trim($_POST['correo']); 
 
     // Verificar si el usuario ya está registrado
-    $consultusername = "SELECT * FROM empleados WHERE usuario = '$usuario'";
+    $consultusername = "SELECT * FROM  $nomempresa WHERE usuario = '$usuario'";
     $resultusername = mysqli_query($conexion, $consultusername);
 
     if (mysqli_num_rows($resultusername) > 0) {

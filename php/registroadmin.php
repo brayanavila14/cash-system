@@ -15,7 +15,7 @@ if (isset($_POST['registra'])) {
     $resultado = mysqli_query($conexion, $consulta);
 
     if (mysqli_num_rows($resultado) > 0) {
-        echo '<h3 class="mensaje-error">¡El usuario ' . $usuario . 'ya está registrado!</h3>';
+        echo '<h3 class="mensaje-error">¡El usuario ' . $usuario . ' ya está registrado!</h3>';
         exit;
     }
 
@@ -51,47 +51,54 @@ if (isset($_POST['registra'])) {
     }
 
     // inserta los datos a la tabla administrador
-    $consulta = "INSERT INTO administrador( ID, nombre_empresa, usuario, contraseña, email) VALUES ( '$cod','$name','$usuario','$password','$correo')";
+    $consulta = "INSERT INTO administrador(ID, nombre_empresa, usuario, contraseña, email) VALUES ('$cod','$name','$usuario','$password','$correo')";
     $resultado = mysqli_query($conexion, $consulta);
-    
-    // se verifica si el usuario se registro
+
+    // se verifica si el usuario se registró correctamente
     if ($resultado) {
-        // crea las tablas correspondientes, empleado y inventario
-        // se crea la tabla empleados
-        $createtable = "CREATE TABLE empleados_$name(
-            ID_empleado varchar(8) NOT NULL,
-            nombre_empresa varchar (255) NOT NULL,
-            usuario varchar (255) NOT NULL, 
-            contraseña varchar (255) NOT NULL, 
-            email varchar (255) NOT NULL, 
-            PRIMARY KEY(ID_empleado), 
-            FOREIGN KEY(nombre_empresa) REFERENCES administrador(ID) 
-            );";
+       // Sentencia para crear la tabla empleados
+    $createTableEmpleados = "CREATE TABLE $name (
+    ID_empleado varchar(8) NOT NULL,
+    nombre_empresa varchar(255) NOT NULL,
+    usuario varchar(255) NOT NULL,
+    contrasena varchar(255) NOT NULL,
+    email varchar(255) NOT NULL,
+    PRIMARY KEY(ID_empleado),
+    FOREIGN KEY(nombre_empresa) REFERENCES administrador(ID)
+    );";
+
+    $resultEmpleados = mysqli_query($conexion, $createTableEmpleados);
+
+    // Sentencia para crear la tabla inventario
+    $createTableInventario = "CREATE TABLE inventario-$name (
+    codigo_producto varchar(8) NOT NULL,
+    nombre_producto varchar(255) NOT NULL,
+    precio_actual INT NOT NULL,
+    cantidad_disponible INT NOT NULL,
+    PRIMARY KEY(codigo_producto)
+    );";
+    $resultInventario = mysqli_query($conexion, $createTableInventario);
+
+    // inserta los datos a la tabla administrador
+    $consultnomtable = "INSERT INTO registro_tabla(Nombre_tablas) VALUES ('empleado_$name')";
+    $resultnomtable = mysqli_query($conexion, $consultnomtable);
+
+
+        // se verifica si las tablas se crearon correctamente
+        if ($resultEmpleados && $resultInventario && $resultnomtable) {
             
-            // se crea la tabla empleados
-            $resulttable = mysqli_query($conexion, $createtable);
-
-            $createinventorio = "CREATE TABLE invetario_$name(
-                
-                codigo_producto varchar(8) NOT NULL,
-                nombre_producto varchar (255) NOT NULL,
-                precio_actual INT NOT NULL,
-                cantidad_disponible INT (255) NOT NULL,
-                email varchar (255) NOT NULL, PRIMARY KEY(ID_empleado),
-                FOREIGN KEY(nombre_empresa) REFERENCES administrador(ID) );";
-            $resultinventario = mysqli_query($conexion, $createinventorio);
-
-            // se verifica si el usuario se registro
-            if ($resultinventario) {
-                $insertregist =  "INSERT INTO registro_tabla(Nombre_tablas) VALUES ('empleados_$name')";
-                $resultregist =  mysqli_query($conexion, $insertregist);
-            }
-        header("Location: ../index.php");
-        $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Registro con exito, bienvenido' . $name . '!</div>';
-        exit;
+            $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Registro exitoso, bienvenido ' . $name . '!</div>';
+            // se redirige al usuario a la página de inicio
+            header("Location: ../index.php");
+            exit;
+        } else {
+            echo '<h3 class="mensaje-error">¡Ha ocurrido un error al crear las tablas!</h3>';
+            exit;
+        }
     } else {
-        echo '<h3 class="mensaje-error">¡Ha ocurrido un error, por favor vuelve a intentarlo!</h3>';
+        echo '<h3 class="mensaje-error">¡Ha ocurrido un error al registrar el usuario!</h3>';
         exit;
     }
 }
 ?>
+

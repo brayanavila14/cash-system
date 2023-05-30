@@ -2,13 +2,8 @@
 $conexion = mysqli_connect("localhost", "root", "", "cash system");
 
 if ($conexion) {
-    ?>
-        <h3 class="estado bien"><p>En linea</p></h3>
-    <?php
+    echo '<h3 class="estado bien"><p>En linea</p></h3>';
 } else {
-    ?>
-        <h3 class="estado error"><p>Desconectado</p></h3>
-    <?php
+    echo '<h3 class="estado bien"><p>Desconectado</p></h3>';
 }
-
 ?>
