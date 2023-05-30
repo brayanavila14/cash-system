@@ -1,72 +1,53 @@
 <?php
-
 session_start();
-
 include("base-de-datos.php");
 
-
-// Verificar si se ha enviado el formulario
 if (isset($_POST['ingresar'])) {
-
-    // se guardan las variables...
-    $empresa = trim($_POST['nameempresa']);
     $name = trim($_POST['name']);
     $password = trim($_POST['password']);
+    $nombreEmpresa = trim($_POST['nombre_empresa']);
 
-    //si el nombre de la empresa, el usuario y la contraseña están vacíos...
-    if (empty($empresa) && empty($name) && empty($password)) {
-        echo '<div class="mensaje-error">¡No has escrito nada!</div>';
-    } elseif (empty($empresa)) {
-        echo '<div class="mensaje-error">¡No has escrito el nombre de la empresa!</div>';
-    } elseif (empty($name)) {
-        echo '<div class="mensaje-error">¡No has escrito el usuario!</div>';
-    } elseif (empty($password)) {
-        echo '<div class="mensaje-error">¡No has escrito la contraseña!</div>';
+    if (empty($name) || empty($password) || empty($nombreEmpresa)) {
+        echo '<div class="mensaje-error">¡No has ingresado todos los campos!</div>';
     } else {
-        
-        //se escribe el código MySQL para seleccionar los datos que queremos.
-        $consult1 = "SELECT usuario, Contraseña FROM administrador WHERE usuario='$name' LIMIT 1";
-        //se hace la consulta a la base de datos.
-        $result1 = mysqli_query($conexion, $consult1);
+        // Consulta para verificar si el usuario existe en la tabla "administrador"
+        $consulta1 = "SELECT nombre_empresa, usuario, contraseña FROM administrador WHERE usuario='$name' AND nombre_empresa='$nombreEmpresa' LIMIT 1";
+        $resultado1 = mysqli_query($conexion, $consulta1);
 
-        //se escribe el código MySQL para seleccionar los datos que queremos.
-        $consult2 = "SELECT usuario, Contraseña FROM $empresa WHERE usuario = '$name' LIMIT 1";
-        //se hace la consulta a la base de datos.
-        $result2 = mysqli_query($conexion, $consult2);
+        if (mysqli_num_rows($resultado1) === 0) {
+            echo '<div class="mensaje-error usuario">¡El usuario ' . $name . ' no existe, REGÍSTRATE!</div>';
+        } else {
+            $info1 = mysqli_fetch_assoc($resultado1);
 
-            
-             //se verifica si no hay filas con los datos guardados en las variables...
-            if (mysqli_num_rows($result1) === 0 && mysqli_num_rows($result2) === 0) {
-                echo '<div class="mensaje-error usuario">¡El usuario ' . $name . ' no existe, REGISTRATE!</div>';
-            } else {
-                $info1 = mysqli_fetch_assoc($result1);
-                $info2 = mysqli_fetch_assoc($result2);
+            // Consulta para verificar si el usuario existe en la tabla correspondiente de "empleado_NombreEmpresa"
+            $consulta2 = "SELECT contraseña FROM empleado_$nombreEmpresa WHERE usuario='$name' LIMIT 1";
+            $resultado2 = mysqli_query($conexion, $consulta2);
 
-                //se verifica si la contraseña es correcta
-                if ($info1 && $info1['Contraseña'] === $password) {
+            if (mysqli_num_rows($resultado2) === 0) {
+                // El usuario existe en la tabla "administrador", se verifica la contraseña
+                if ($info1 && $info1['contraseña'] === $password) {
                     $_SESSION['nombre'] = $name;
                     $_SESSION['contraseña'] = $password;
                     $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';
-                    // Redirigir a otra página 
+                    header("Location: php/inicio-administrador.php");
+                    exit;
+                } else {
+                    echo '<div class="mensaje-error contraseña">' . $name . ' La contraseña es incorrecta.</div>';
+                }
+            } else {
+                // El usuario existe en la tabla correspondiente de "empleado_NombreEmpresa", se verifica la contraseña
+                $info2 = mysqli_fetch_assoc($resultado2);
+                if ($info2 && $info2['contraseña'] === $password) {
+                    $_SESSION['nombre'] = $name;
+                    $_SESSION['contraseña'] = $password;
+                    $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';
                     header("Location: php/inicio-empleado.php");
-                    exit; // Es importante incluir la instrucción exit para detener la ejecución del script después de la redirección.
+                    exit;
                 } else {
                     echo '<div class="mensaje-error contraseña">' . $name . ' La contraseña es incorrecta.</div>';
                 }
-
-                //se verifica si la contraseña es correcta
-                if ($info2 && $info2['Contraseña'] === $password) {
-                $_SESSION['nombre'] = $name;
-                $_SESSION['contraseña'] = $password;
-                $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';
-                // Redirigir a otra página
-                header("Location: php/inicio-administrador.php");
-                exit; // Es importante incluir la instrucción exit para detener la ejecución del script después de la redirección.
-                } else {
-                    echo '<div class="mensaje-error contraseña">' . $name . ' La contraseña es incorrecta.</div>';
-                }
+            }
         }
     }
 }
 ?>
-
