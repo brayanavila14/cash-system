@@ -31,9 +31,7 @@
                 <input class="campo" name="correo" type="email" placeholder="Correo electrónico" autocomplete="off">
                 <input class="campo" name="usuario" type="text" placeholder="Usuario" autocomplete="off">
                 <input id="clave" class="campo" name="contraseña" type="password" placeholder="Contraseña" autocomplete="off">
-                <img src="../imagenes/ojo-ver.png" class="ojo uno" onclick="mostrarContrasena()">
                 <input id="clave2" class="campo" name="contraseña2" type="password" placeholder="Verifica tu contraseña" autocomplete="off">
-                <img src="../imagenes/ojo-ver.png" class="ojo dos" onclick="mostrarContrasena2()">
             </div>
             <input id="registrar" class="boton-registrar" type="submit" name="registra" value="Registrar">
         </form>

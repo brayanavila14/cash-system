@@ -43,26 +43,29 @@ if (isset($_POST['registra'])) {
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($conexion) {
-        $createTableEmpleados = "CREATE TABLE empleados_$name (
-            ID_empleado varchar(8) NOT NULL,
-            nombre_empresa varchar(255) NOT NULL,
-            usuario varchar(255) NOT NULL,
-            contraseña varchar(255) NOT NULL,
-            email varchar(255) NOT NULL,
+        $empleadosTable = "CREATE TABLE empleados_" . $name . " (
+            ID_empleado VARCHAR(8) NOT NULL,
+            nombre_empresa VARCHAR(255) NOT NULL,
+            usuario VARCHAR(255) NOT NULL,
+            contraseña VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
             PRIMARY KEY(ID_empleado),
             FOREIGN KEY(nombre_empresa) REFERENCES administrador(ID)
-        );";
-
-        $resultEmpleados = mysqli_query($conexion, $createTableEmpleados);
-
-        $createTableInventario = "CREATE TABLE inventario_$name (
-            codigo_producto varchar(8) NOT NULL,
-            nombre_producto varchar(255) NOT NULL,
+        ) ENGINE=InnoDB;";
+        
+        $resultEmpleados = mysqli_query($conexion, $empleadosTable);
+        
+        $inventarioTable = "CREATE TABLE inventario_" . $name . " (
+            codigo_producto VARCHAR(8) NOT NULL,
+            nombre_producto VARCHAR(255) NOT NULL,
             precio_actual INT NOT NULL,
             cantidad_disponible INT NOT NULL,
             PRIMARY KEY(codigo_producto)
-        );";
-        $resultInventario = mysqli_query($conexion, $createTableInventario);
+        ) ENGINE=InnoDB;";
+        
+        $resultInventario = mysqli_query($conexion, $inventarioTable);
+        
+        
 
         if ($resultEmpleados && $resultInventario) {
             $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Registro exitoso, bienvenido ' . $name . '!</div>';

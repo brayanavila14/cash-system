@@ -21,11 +21,13 @@
             <input type="submit" id="ing" name="ingresar" value="Ingresar">
         </form>
         <hr>
-        <input type="button" id="reg" value="Registrar" onclick="window.location.href='php/registro.php';">
+        <input type="button" id="reg" name="registrar" value="Registrar" onclick="window.location.href='php/registro.php';">
     </div>
     <?php
     include("php/validar.php"); 
-
+    if (isset($_POST['regsitrar'])) {
+        $_SESSION['regsitrar'] = 'yes';
+    }
     // Verificar si existe un mensaje en la variable de sesión
     if (isset($_SESSION['mensaje'])) {
     echo $_SESSION['mensaje'];

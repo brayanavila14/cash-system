@@ -98,7 +98,7 @@ hr {
     color: #ff4242;
     background-color: #ffbaba;
 }
-.mensaje-error, .mensaje-correcto{
+.mensaje-error, .mensaje-exito{
     position: fixed;
     top: 20%;
     left: 32%;
@@ -116,7 +116,7 @@ hr {
     animation: saltar 3s ease-in-out;
     animation-fill-mode: forwards;
 }
-.mensaje-correcto{
+.mensaje-exito{
     background-color: #38b759;
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.9);

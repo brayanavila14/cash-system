@@ -7,7 +7,7 @@ if (isset($_POST['ingresar'])) {
     $password = trim($_POST['password']);
     $nombreEmpresa = trim($_POST['nombre_empresa']);
 
-    if (empty($name) || empty($password) || empty($nombreEmpresa)) {
+    if (empty($name) && empty($password) && empty($nombreEmpresa)) {
         echo '<div class="mensaje-error">¡No has ingresado todos los campos!</div>';
     } else {
         // Consulta para verificar si el usuario existe en la tabla "administrador"
