@@ -14,13 +14,6 @@
             <div class="contenido">
             <?php
 
-            session_start();
-
-            if (!$_SESSION['registrar']) {
-
-            header("Location: ../index.php");
-            exit;
-}
             // Generar ID aleatorio de 8 caracteres alfanuméricos
             // primero divido en codigo en dos partes, una que va a hacer la especial y la otra la común.
 

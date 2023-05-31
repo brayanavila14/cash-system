@@ -14,13 +14,6 @@
             <div class="contenido">
             <?php
 
-            session_start();
-
-            if (!$_SESSION['registrar']) {
-
-            header("Location: ../index.php");
-            exit;
-            }
             // Generar ID aleatorio de 8 caracteres alfanuméricos
             $codempleado = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDFGHIFKLMNOPQRSTUVWXYZ0123456789'), 0, 8);
             ?>
