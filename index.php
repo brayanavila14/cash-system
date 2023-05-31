@@ -15,7 +15,7 @@
     <div class="ing-reg">
         <h1>Cash system</h1>
         <form method="post">
-            <input type="text" placeholder="Nombre de la empresa" name="nameempresa" autocomplete="off">
+            <input type="text" placeholder="Nombre de la empresa" name="nombre_empresa" autocomplete="off">
             <input type="text" placeholder="Usuario" name="name" autocomplete="off">
             <input type="password" placeholder="Contraseña" name="password" autocomplete="off">
             <input type="submit" id="ing" name="ingresar" value="Ingresar">
@@ -25,6 +25,7 @@
     </div>
     <?php
     include("php/validar.php"); 
+     // experimento 
     if (isset($_POST['regsitrar'])) {
         $_SESSION['regsitrar'] = 'yes';
     }

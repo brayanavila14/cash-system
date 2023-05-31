@@ -2,15 +2,15 @@
 include("base-de-datos.php");
 
 if (isset($_POST['registra'])) {
-    $codempleado = trim($_POST['cod-empleado']);
-    $nomempresa = trim($_POST['nom-empresa']);
+    $ID_empleado = trim($_POST['cod-empleado']);
+    $nombre_empresa = trim($_POST['nombre_empresa']);
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['contraseña']);
     $password2 = trim($_POST['contraseña2']);
-    $correo = trim($_POST['correo']);
+    $correo = trim($_POST['email']);
 
     // Verificar si el usuario ya está registrado
-    $consultusername = "SELECT * FROM  $nomempresa WHERE usuario = '$usuario'";
+    $consultusername = "SELECT nombre_empresa, usuario, contraseña FROM  empleados_" . $nombre_empresa . " WHERE usuario = '$usuario'";
     $resultusername = mysqli_query($conexion, $consultusername);
 
     if (mysqli_num_rows($resultusername) > 0) {
@@ -18,13 +18,23 @@ if (isset($_POST['registra'])) {
         exit;
     }
 
-    if (empty($nomempresa)) {
-        echo '<h3 class="mensaje-error">¡Por favor, ingresa el nombre de la empresa!</h3>';
+    if (empty($nombre_empresa) || empty($usuario) || empty($password) || empty($password2) || empty($correo)) {
+        echo '<h3 class="mensaje-error">¡No has ingresado todos los campos!</h3>';
         exit;
     }
 
-    if (empty($usuario) || empty($password) || empty($password2) || empty($correo)) {
-        echo '<h3 class="mensaje-error">¡No has ingresado todos los campos!</h3>';
+    if (empty($nombre_empresa)) {
+        echo '<h3 class="mensaje-error">¡ingresa el nombre de la empresa, Por favor!</h3>';
+        exit;
+    }
+
+    if (empty($correo)) {
+        echo '<h3 class="mensaje-error">¡ingresa el email, Por favor!</h3>';
+        exit;
+    }
+
+    if (empty($usuario)) {
+        echo '<h3 class="mensaje-error">¡ingresa el usuario, Por favor!</h3>';
         exit;
     }
 
@@ -33,7 +43,12 @@ if (isset($_POST['registra'])) {
         exit;
     }
 
-    if (strlen($password) < 5) {
+    if (empty($password)) {
+        echo '<h3 class="mensaje-error">¡ingresa la coontraseña, Por favor!</h3>';
+        exit;
+    }
+
+    if (strlen($password) < 6) {
         echo '<h3 class="mensaje-error">¡La contraseña es muy corta!</h3>';
         exit;
     }
@@ -43,11 +58,11 @@ if (isset($_POST['registra'])) {
         exit;
     }
 
-    $consulta = "INSERT INTO empleados_$nomempresa(ID_empleado, nombre_empresa, usuario, contraseña, correo) VALUES ('$codempleado','$nomempresa','$usuario','$password','$correo')";
+    $consulta = "INSERT INTO empleados_" . $nombre_empresa . "( ID_employee, company_name, username, password, email) VALUES ('$ID_empleado','$nombre_empresa','$usuario','$password','$correo')";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (mysqli_affected_rows($conexion) > 0) {
-        $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Registro exitoso, bienvenido ' . $nomempresa . '!</div>';
+        $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Registro exitoso, bienvenido ' . $usuario. '!</div>';
         header("Location: ../index.php");
         exit;
     } else {

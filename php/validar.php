@@ -11,7 +11,7 @@ if (isset($_POST['ingresar'])) {
         echo '<div class="mensaje-error">¡No has ingresado todos los campos!</div>';
     } else {
         // Consulta para verificar si el usuario existe en la tabla "administrador"
-        $consulta1 = "SELECT nombre_empresa, usuario, contraseña FROM administrador WHERE usuario='$name' AND nombre_empresa='$nombreEmpresa' LIMIT 1";
+        $consulta1 = "SELECT nombre_empresa, usuario, contraseña FROM administrador WHERE usuario='$name' LIMIT 1";
         $resultado1 = mysqli_query($conexion, $consulta1);
 
         if (mysqli_num_rows($resultado1) === 0) {
@@ -32,7 +32,7 @@ if (isset($_POST['ingresar'])) {
                     header("Location: php/inicio-administrador.php");
                     exit;
                 } else {
-                    echo '<div class="mensaje-error contraseña">' . $name . ' La contraseña es incorrecta.</div>';
+                    echo '<div class="mensaje-error contraseña">' . $name . ', la contraseña es incorrecta.</div>';
                 }
             } else {
                 // El usuario existe en la tabla correspondiente de "empleado_NombreEmpresa", se verifica la contraseña
@@ -44,10 +44,11 @@ if (isset($_POST['ingresar'])) {
                     header("Location: php/inicio-empleado.php");
                     exit;
                 } else {
-                    echo '<div class="mensaje-error contraseña">' . $name . ' La contraseña es incorrecta.</div>';
+                    echo '<div class="mensaje-error contraseña">' . $name . ', la contraseña es incorrecta.</div>';
                 }
             }
         }
     }
 }
 ?>
+

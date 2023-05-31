@@ -27,7 +27,7 @@
 
             ?>
                 <input id="codigo" class="campo" name="cod" type="text" placeholder="Código de empresa" value="<?php echo $codempresa; ?>" readonly>
-                <input class="campo" name="nom-empresa" type="text" placeholder="Nombre de empresa" autocomplete="off">
+                <input class="campo" name="nombre_empresa" type="text" placeholder="Nombre de empresa" autocomplete="off">
                 <input class="campo" name="correo" type="email" placeholder="Correo electrónico" autocomplete="off">
                 <input class="campo" name="usuario" type="text" placeholder="Usuario" autocomplete="off">
                 <input id="clave" class="campo" name="contraseña" type="password" placeholder="Contraseña" autocomplete="off">
