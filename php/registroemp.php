@@ -3,7 +3,10 @@ include("base-de-datos.php");
 
 if (isset($_POST['registra'])) {
     $ID_empleado = trim($_POST['cod-empleado']);
+
     $nombre_empresa = trim($_POST['nombre_empresa']);
+    $newnombre_empresa  = str_replace("", "_", $nombre_empresa );
+
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['contraseña']);
     $password2 = trim($_POST['contraseña2']);
@@ -58,7 +61,7 @@ if (isset($_POST['registra'])) {
         exit;
     }
 
-    $consulta = "INSERT INTO empleados_" . $nombre_empresa . "( ID_employee, company_name, username, password, email) VALUES ('$ID_empleado','$nombre_empresa','$usuario','$password','$correo')";
+    $consulta = "INSERT INTO empleados_" . $newnombre_empresa . "( ID_employee, company_name, username, password, email) VALUES ('$ID_empleado','$nombre_empresa','$usuario','$password','$correo')";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (mysqli_affected_rows($conexion) > 0) {

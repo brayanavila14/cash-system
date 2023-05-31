@@ -4,7 +4,10 @@ include("base-de-datos.php");
 
 if (isset($_POST['registra'])) {
     $cod = mysqli_real_escape_string($conexion, trim($_POST['cod']));
+
     $name = mysqli_real_escape_string($conexion, trim($_POST['nombre_empresa']));
+    $newname = str_replace("", "_", $name );
+
     $usuario = mysqli_real_escape_string($conexion, trim($_POST['usuario']));
     $password = mysqli_real_escape_string($conexion, trim($_POST['contraseña']));
     $password2 = mysqli_real_escape_string($conexion, trim($_POST['contraseña2']));
@@ -43,7 +46,7 @@ if (isset($_POST['registra'])) {
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($conexion) {
-        $empleadosTable = "CREATE TABLE empleados_" . $name . " (
+        $empleadosTable = "CREATE TABLE empleados_" . $newname . " (
             ID_employee VARCHAR(8) NOT NULL,
             company_name VARCHAR(255) NOT NULL,
             username VARCHAR(255) NOT NULL,
@@ -51,17 +54,17 @@ if (isset($_POST['registra'])) {
             email VARCHAR(255) NOT NULL,
             PRIMARY KEY (ID_employee),
             FOREIGN KEY (company_name) REFERENCES administrador (ID)
-        ) ENGINE=InnoDB;";
+        );";
         
         $resultEmpleados = mysqli_query($conexion, $empleadosTable);
         
-        $inventarioTable = "CREATE TABLE inventario_" . $name . " (
+        $inventarioTable = "CREATE TABLE inventario_" . $newname . " (
             codigo_producto VARCHAR(8) NOT NULL,
             nombre_producto VARCHAR(255) NOT NULL,
             precio_actual INT NOT NULL,
             cantidad_disponible INT NOT NULL,
             PRIMARY KEY (codigo_producto)
-        ) ENGINE=InnoDB;";
+        );";
         
         
         $resultInventario = mysqli_query($conexion, $inventarioTable);
