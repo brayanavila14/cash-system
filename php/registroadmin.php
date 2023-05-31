@@ -6,7 +6,7 @@ if (isset($_POST['registra'])) {
     $cod = mysqli_real_escape_string($conexion, trim($_POST['cod']));
 
     $name = mysqli_real_escape_string($conexion, trim($_POST['nombre_empresa']));
-    $newname = str_replace("", "_", $name );
+    $newname = str_replace(" ", "_", $name );
 
     $usuario = mysqli_real_escape_string($conexion, trim($_POST['usuario']));
     $password = mysqli_real_escape_string($conexion, trim($_POST['contraseña']));

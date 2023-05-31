@@ -5,7 +5,7 @@ if (isset($_POST['registra'])) {
     $ID_empleado = trim($_POST['cod-empleado']);
 
     $nombre_empresa = trim($_POST['nombre_empresa']);
-    $newnombre_empresa  = str_replace("", "_", $nombre_empresa );
+    $newnombre_empresa  = str_replace(" ", "_", $nombre_empresa );
 
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['contraseña']);
