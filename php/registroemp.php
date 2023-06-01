@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 include("base-de-datos.php");
 
 if (isset($_POST['registra'])) {
@@ -13,7 +15,7 @@ if (isset($_POST['registra'])) {
     $correo = trim($_POST['email']);
 
     // Verificar si el usuario ya está registrado
-    $consultusername = "SELECT nombre_empresa, usuario, contraseña FROM  empleados_" . $nombre_empresa . " WHERE usuario = '$usuario'";
+    $consultusername = "SELECT 'company_name', 'username', 'password' FROM  empleados_" . $newnombre_empresa . " WHERE username = '$usuario'";
     $resultusername = mysqli_query($conexion, $consultusername);
 
     if (mysqli_num_rows($resultusername) > 0) {

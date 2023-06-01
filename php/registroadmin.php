@@ -53,7 +53,7 @@ if (isset($_POST['registra'])) {
             password VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL,
             PRIMARY KEY (ID_employee),
-            FOREIGN KEY (company_name) REFERENCES administrador (ID)
+            FOREIGN KEY (company_name) REFERENCES administrador (nombre_empresa)
         );";
         
         $resultEmpleados = mysqli_query($conexion, $empleadosTable);

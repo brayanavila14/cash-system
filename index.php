@@ -21,7 +21,10 @@
             <input type="submit" id="ing" name="ingresar" value="Ingresar">
         </form>
         <hr>
+        <form action="" method="post">
         <input type="submit" id="reg" name="registrar" value="Registrar" onclick="window.location.href='php/registro.php';">
+        </form>
+       
     </div>
     <?php
     include("php/validar.php"); 

@@ -126,10 +126,10 @@ input[type="number"]::-webkit-inner-spin-button{
     }
 @keyframes agitarse{
     0% {
-        transform: rotate(0.5deg);
+        transform: rotate(0.3deg);
     }
     50% {
-        transform: rotate(-0.5deg);
+        transform: rotate(-0.3deg);
     }
     100% {
         transform: rotate(0deg);
