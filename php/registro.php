@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Verificar si la sesión "inicio" existe y tiene el valor true
+if (!isset($_SESSION['inicio']) || $_SESSION['inicio'] !== true) {
+    // La sesión "inicio" no existe o tiene otro valor, redireccionar al usuario o mostrar mensaje de error
+    header("Location: ../index.php"); // Redireccionar a otra página
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

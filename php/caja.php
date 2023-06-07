@@ -8,7 +8,27 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
-// El usuario ha iniciado sesión, puedes continuar con el código de tu archivo
+// Verificar si se ha enviado el formulario para ingresar un producto
+if (isset($_POST['ingresar'])) {
+    $codigo = $_POST['codigo'];
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    $cantidad = $_POST['cantidad'];
+
+    // Verificar si la sesión "factura" existe, de lo contrario, crearla
+    if (!isset($_SESSION['factura'])) {
+        $_SESSION['factura'] = array();
+    }
+
+    // Agregar el producto a la sesión "factura"
+    $_SESSION['factura'][] = array(
+        'codigo' => $codigo,
+        'nombre' => $nombre,
+        'precio' => $precio,
+        'cantidad' => $cantidad
+    );
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,53 +41,24 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <title>Caja - Sistema caja registradora</title>
 </head>
 <body>
-    <div class="titular">
-        <a id="enlace"><button id="atras" onclick="cambioa()">Atras</button></a>
-        <h1>Caja registradora</h1>
-    </div>
-    <div class="campo">
-        <h4>codigo</h4>
-        <input type="text" placeholder="codigo del producto">
-    </div>
-    <div class="campo">
-        <h4>Nombre</h4>
-        <input type="text" placeholder="Nombre del producto">
-    </div>
-    <div class="campo">
-        <h4>Precio</h4>
-        <input type="number" placeholder="Precio actual" readonly>
-    </div>
-    <div class="campo">
-        <h4>Cantidad</h4>
-        <input type="number" placeholder="Cantidad comprada">
-    </div>
-    <div class="botones">
-        <button>Ingresar</button>
-    </div>
-    <hr>
-    <div class="lista">
-        <h4>codigo</h4>
-        <h4>Nombre</h4>
-        <h4>Precio</h4>
-        <h4>Cantidad</h4>
-        <h4>subtotal</h4>
-    </div>
-    <div class="contenido-lista">
-        <div>
-            <p class="cod">001</p>
-            <p class="pdcto">Arroz suelto</p>
-            <p class="Precio">4000</p>
-            <p class="cant">10</p>
-            <p class="subtotal">40000</p>
-        </div>
-        <hr>
-    </div>
-    <div class="pie">
-        <h4 id="Total">Total</h4> <input type="number" readonly>
-        <h4 id="Efectivo">Efectivo</h4> <input type="number">
-        <h4 id="Devuelta">Devuelta</h4> <input  type="number" readonly>
-        <button class="Limpiar"><p class="btn-limpiar">Limpiar</p></button>
-        <button class="Cancelar"><p class="btn-cancelar">Cancelar</p></button>
-    </div>
+<div class="campo">
+    <h4>codigo</h4>
+    <input type="text" placeholder="codigo del producto" name="codigo">
+</div>
+<div class="campo">
+    <h4>Nombre</h4>
+    <input type="text" placeholder="Nombre del producto" name="nombre">
+</div>
+<div class="campo">
+    <h4>Precio</h4>
+    <input type="number" placeholder="Precio actual" readonly name="precio">
+</div>
+<div class="campo">
+    <h4>Cantidad</h4>
+    <input type="number" placeholder="Cantidad comprada" name="cantidad">
+</div>
+<div class="botones">
+    <button type="submit" name="ingresar">Ingresar</button>
+</div>
 </body>
 </html>

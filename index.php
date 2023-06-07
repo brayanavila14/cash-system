@@ -21,17 +21,22 @@
             <input type="submit" id="ing" name="ingresar" value="Ingresar">
         </form>
         <hr>
-        <form action="" method="post">
-        <input type="submit" id="reg" name="registrar" value="Registrar" onclick="window.location.href='php/registro.php';">
+        <form action="php/registro.php" method="post">
+            <input type="submit" id="reg" name="registrar" value="Registrar">
         </form>
-       
     </div>
     <?php
+
+    session_start();
+
     include("php/validar.php"); 
-    //verifica si se le da click a boton
+    
+    // Verificar si se le dio click al botón "Registrar"
     if (isset($_POST['registrar'])) {
-        $_SESSION['mi_sesion'] = true;
+        
+        $_SESSION['inicio'] = true; // Crear sesión con nombre "inicio" y valor true
     }
+
     // Verificar si existe un mensaje en la variable de sesión
     if (isset($_SESSION['mensaje'])) {
     echo $_SESSION['mensaje'];
