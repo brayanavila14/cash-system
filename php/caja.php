@@ -1,36 +1,3 @@
-<?php
-session_start();
-
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // El usuario no ha iniciado sesión, redirigirlo a index.php
-    header("Location: ../index.php");
-    exit;
-}
-
-// Verificar si se ha enviado el formulario para ingresar un producto
-if (isset($_POST['ingresar'])) {
-    $codigo = $_POST['codigo'];
-    $nombre = $_POST['nombre'];
-    $precio = $_POST['precio'];
-    $cantidad = $_POST['cantidad'];
-
-    // Verificar si la sesión "factura" existe, de lo contrario, crearla
-    if (!isset($_SESSION['factura'])) {
-        $_SESSION['factura'] = array();
-    }
-
-    // Agregar el producto a la sesión "factura"
-    $_SESSION['factura'][] = array(
-        'codigo' => $codigo,
-        'nombre' => $nombre,
-        'precio' => $precio,
-        'cantidad' => $cantidad
-    );
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
