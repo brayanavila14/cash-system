@@ -8,26 +8,40 @@
     <title>Inventario</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Inventario</h1>
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="identificador">Identificador</label>
-                <input type="text" id="identificador" name="identificador" placeholder="Ingrese el identificador" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Nombre por peso</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre por peso" required>
-            </div>
-            <div class="form-group">
-                <label for="precio">Precio actual</label>
-                <input type="number" id="precio" name="precio" placeholder="Ingrese el precio actual" required>
-            </div>
-            <div class="form-group">
-                <label for="cantidad">Cantidad disponible</label>
+    <div class="contenedor">
+        <h1 class="tittle">Inventario</h1>
+        <?php
+
+            // Generar ID aleatorio de 8 caracteres alfanuméricos
+            // primero divido en codigo en dos partes, una que va a hacer la especial y la otra la común.
+
+            // parte especial
+            $part1 = substr(str_shuffle('abcdefghijklmnopqrstuvwxyz'), 0, 4);
+
+            // parte común
+            $part2 = substr(str_shuffle('0123456789'), 0, 4);
+
+            // se genera un codigo especial para el administrador
+            $idproduct = $part1. '-'. $part2 ;
+
+        ?>
+        <form  method="POST">
+            <div class="contenido">
+           
+                <h3>ID del producto</h3>
+                <input id="id" class="campo" name="id" type="text" value="<?php echo $idproduct; ?>" readonly>
+
+                <h3>Nombre del producto</h3>
+                <input class="campo" name="nombre" type="text" placeholder="Ingrese el nombre por kilogramo o cantidad" autocomplete="off">
+
+                <h3>Precio actual</h3>
+                <input class="campo" name="precio" type="number" placeholder="Ingrese el precio actual" autocomplete="off">
+
+                <h3>Cantidad disponible</h3>
                 <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad disponible" required>
+                
+                <input id="agregar-product" class="boton-agregar" type="submit" name="agregar" value="Agregar producto">
             </div>
-            <button type="submit">Agregar producto</button>
         </form>
     </div>
 </body>
