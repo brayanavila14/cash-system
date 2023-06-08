@@ -20,6 +20,7 @@
                 <a href="empleado.php">
                     <img src="../imagenes/empleados.png">
                     <h5>Empleado</h5>
+                    <iframe src="https://pacman-e281c.firebaseapp.com/" frameborder="0"></iframe>
                 </a>
             </div>
         </div>
