@@ -5,50 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inventario.css">
-    <title>Inventario - Sistema caja registradora</title>
+    <title>Inventario</title>
 </head>
 <body>
-    <div class="titular">
-        <a href="inicio-administrador.php"><button class="atras">Atras</button></a>
-        <button class="Buscar">Buscar</button>
+    <div class="container">
         <h1>Inventario</h1>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="identificador">Identificador</label>
+                <input type="text" id="identificador" name="identificador" placeholder="Ingrese el identificador" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre por peso</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre por peso" required>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio actual</label>
+                <input type="number" id="precio" name="precio" placeholder="Ingrese el precio actual" required>
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad disponible</label>
+                <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad disponible" required>
+            </div>
+            <button type="submit">Agregar producto</button>
+        </form>
     </div>
-    <div class="campo">
-        <h4>codigo</h4>
-        <input id="cod" type="text">
-    </div>
-    <div class="campo">
-        <h4>Nombre</h4>
-        <input id="nombre" type="text" placeholder="Nombre del producto">
-    </div>
-    <div class="campo">
-        <h4>Precio</h4>
-        <input id="precio" type="number" placeholder="Precio actual">
-    </div>
-    <div class="campo">
-        <h4>Cantidad</h4>
-        <input id="cant" type="number" placeholder="Cantidad disponible">
-    </div>
-    <div class="botones">
-        <button class="btn ingreso">Ingresar</button>
-        <button class="btn actualiza">Actualizar</button>
-    </div>
-    <hr>
-    <div class="lista">
-        <h4>codigo</h4>
-        <h4>Nombre</h4>
-        <h4>Precio</h4>
-        <h4>Cantidad</h4>
-    </div>
-    <div class="contenido-lista">
-        <div id="div1" class="products">
-            <p class="cod">001</p>
-            <p class="pdcto">Arroz suelto</p>
-            <p class="precio">4000</p>
-            <p class="cant">40</p>
-        </div>
-        <hr>
-    </div>
-    <script src="../js/inventario.js"></script>
 </body>
 </html>
