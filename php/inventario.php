@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="contenedor">
-        <h1 class="tittle">Inventario</h1>
+        <h1 class="tittle">Registro de Productos</h1>
         <?php
 
             // Generar ID aleatorio de 8 caracteres alfanuméricos
@@ -27,21 +27,13 @@
         ?>
         <form  method="POST">
             <div class="contenido">
-           
-                <h3>ID del producto</h3>
                 <input id="id" class="campo" name="id" type="text" value="<?php echo $idproduct; ?>" readonly>
-
-                <h3>Nombre del producto</h3>
-                <input class="campo" name="nombre" type="text" placeholder="Ingrese el nombre por kilogramo o cantidad" autocomplete="off">
-
-                <h3>Precio actual</h3>
-                <input class="campo" name="precio" type="number" placeholder="Ingrese el precio actual" autocomplete="off">
-
-                <h3>Cantidad disponible</h3>
-                <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad disponible" required>
+                <input class="campo" name="nombre" type="text" placeholder="Nombre por kilogramo o volumen" autocomplete="off">
+                <input class="campo" name="precio" type="number" placeholder="Precio actual por unidad o kilo" autocomplete="off">
+                <input type="number" id="cantidad" name="cantidad" placeholder="Cantidad disponible" required>
 
                 <input id="agregar-product" type="submit" name="agregar" value="Agregar producto">
-                <input id="boton-inventario" type="button" value="ver inventario" onclick="location.href='../php/inventariolista.php';">
+                <input id="boton-inventario" type="button" value="Ver inventario" onclick="location.href='../php/inventariolista.php';">
 
             </div>
         </form>
