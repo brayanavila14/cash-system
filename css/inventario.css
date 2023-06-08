@@ -34,20 +34,19 @@ body {
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
-
 .contenido input {
     margin: 10px 0 ;
     padding: 6px;
     font-size: 110%;
     border-radius: 5px;
-    width: 75%;
+    width: 76%;
     border: none;
 }
-.boton-agregar, .boton-inventario{
+#agregar-product, #boton-inventario{
     background-color: #4d85c9;
     font-size: 130%;
     border-radius: 20px;
-    width: 40%;
+    width: 50%;
     margin-bottom: 10px;
     padding: 8px;
     margin-top: 30px;
@@ -55,7 +54,7 @@ body {
     color: white;
     cursor: pointer;
 }
-.boton-agregar:hover, .boton-inventario:hover {
+#agregar-product:hover,#boton-inventario:hover {
     background-color: #0056b3;
     transform: scale(1.03);
     transition: 1s;
