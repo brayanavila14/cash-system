@@ -41,7 +41,7 @@
                 <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad disponible" required>
 
                 <input id="agregar-product" class="boton-agregar" type="submit" name="agregar" value="Agregar producto">
-                <input type="button" value="ver inventario" onclick="location.href='../php/inventariolista.php';">
+                <input class="boton-inventario" type="button" value="ver inventario" onclick="location.href='../php/inventariolista.php';">
             </div>
         </form>
     </div>

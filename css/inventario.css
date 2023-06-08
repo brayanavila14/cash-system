@@ -42,21 +42,20 @@ body {
     border-radius: 5px;
     width: 75%;
     border: none;
-    background-color: #ffffff;
 }
-.boton-agregar{
+.boton-agregar, .boton-inventario{
     background-color: #4d85c9;
     font-size: 130%;
     border-radius: 20px;
-    width: 60%;
+    width: 40%;
     margin-bottom: 10px;
     padding: 8px;
-    margin-top: 20px;
+    margin-top: 30px;
     border: none;
     color: white;
     cursor: pointer;
 }
-.boton-agregar:hover {
+.boton-agregar:hover, .boton-inventario:hover {
     background-color: #0056b3;
     transform: scale(1.03);
     transition: 1s;
@@ -86,44 +85,3 @@ input[type="number"]::-webkit-inner-spin-button{
     color: #ff4242;
     background-color: #ffbaba;
 }
-.mensaje-error {
-    position: fixed;
-    top: 5%;
-    left: 32%;
-    width: 36%;
-    text-align: center;
-    background-color: #C2E5FF;
-    color: #ff0000;
-    border: 1px solid #ff0000;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    opacity: 1;
-    transition: opacity 3s ease-in-out, transform 3s ease-in-out;
-    animation: saltar 3s ease-in-out, agitarse 3s ease-out;
-    animation-fill-mode: forwards;
-}
-@keyframes saltar {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(8px);
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 0;
-    }
-    }
-@keyframes agitarse{
-    0% {
-        transform: rotate(0.3deg);
-    }
-    50% {
-        transform: rotate(-0.3deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-} 
