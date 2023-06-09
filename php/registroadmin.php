@@ -59,11 +59,10 @@ if (isset($_POST['registra'])) {
         $resultEmpleados = mysqli_query($conexion, $empleadosTable);
         
         $inventarioTable = "CREATE TABLE inventario_" . $newname . " (
-            codigo_producto VARCHAR(8) NOT NULL,
             nombre_producto VARCHAR(255) NOT NULL,
             precio_actual INT NOT NULL,
             cantidad_disponible INT NOT NULL,
-            PRIMARY KEY (codigo_producto)
+            PRIMARY KEY (nombre_producto)
         );";
         
         
