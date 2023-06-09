@@ -21,16 +21,7 @@
     <title>Inicio - sistema de caja registradora</title>
 </head>
 <body>
-    <div class="menu">
-        <img class="imagenlogo" src="../imagenes/yo .jpg" onclick="btn()">
-        <div class="menuoculto">
-            <img src="../imagenes/yo .jpg">
-            <h3>Brayan David Avila Orozco</h3>
-            <h5 class="cargo">Empleado</h6>
-            <hr>
-            <h6 class="opc"><a href="../index.php">Cerrar sesión</a></h6>
-        </div>
-    </div>
+    <input class="sesionclose" type="submit" value="Salir">
     <div class="contenedor">
         <div class="opciones">
             <div class="opcion inventario">
