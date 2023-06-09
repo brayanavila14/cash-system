@@ -13,9 +13,9 @@
         <h1 class="tittle">Registro de Productos</h1>        
             <div class="contenido">
             <form  method="POST">
-                <input class="campo" name="nombre" type="text" placeholder="Nombre por kilogramo o volumen" autocomplete="off">
-                <input class="campo" name="precio" type="number" placeholder="Precio actual por unidad o kilo" autocomplete="off">
-                <input id="cantidad" name="cantidad" type="number" placeholder="Cantidad disponible">
+                <input class="campo" name="name" type="text" placeholder="Nombre por kilogramo o volumen" autocomplete="off">
+                <input class="campo" name="valor" type="number" placeholder="Precio actual por unidad o kilo" autocomplete="off">
+                <input id="cantidad" name="cant" type="number" placeholder="Cantidad disponible">
 
                 <input id="agregar-product" type="submit" name="agregar" value="Agregar producto">
                 <input id="update-product" type="submit" name="update" value="Actualizar producto">
