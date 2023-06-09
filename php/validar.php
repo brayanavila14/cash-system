@@ -29,7 +29,7 @@ if (isset($_POST['ingresar'])) {
     if (mysqli_num_rows($resultadoadmin) === 0) {
         // El usuario no existe en la tabla "administrador"
         // Se verifica si el usuario existe en la tabla correspondiente de "empleados de la empresa"
-        $consultaempleado = "SELECT company_name, username, password FROM empleados_" . $newnombre_empresa . " WHERE username='$name' LIMIT 1";
+        $consultaempleado = "SELECT 'company_name', 'username', 'password' FROM empleados_" . $newnombre_empresa . " WHERE username='$name' LIMIT 1";
         $resultadoempleado = mysqli_query($conexion, $consultaempleado);
 
         if (mysqli_num_rows($resultadoempleado) === 0) {
@@ -50,6 +50,7 @@ if (isset($_POST['ingresar'])) {
         // El usuario existe en la tabla "administrador"
         $info1 = mysqli_fetch_assoc($resultadoadmin);
         if ($info1 && $info1['contraseña'] === $password) {
+            $_SESSION['empresa'] = $nombre_empresa;
             $_SESSION['nombre'] = $name;
             $_SESSION['contraseña'] = $password;
             $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';

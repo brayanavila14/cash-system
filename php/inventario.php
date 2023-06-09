@@ -19,7 +19,7 @@
             $part1 = substr(str_shuffle('abcdefghijklmnopqrstuvwxyz'), 0, 4);
 
             // parte común
-            $part2 = substr(str_shuffle('0123456789'), 0, 4);
+            $part2 = substr(str_shuffle('0123456789'), 0, 6);
 
             // se genera un codigo especial para el administrador
             $idproduct = $part1. '-'. $part2 ;
@@ -30,9 +30,10 @@
                 <input id="id" class="campo" name="id" type="text" value="<?php echo $idproduct; ?>" readonly>
                 <input class="campo" name="nombre" type="text" placeholder="Nombre por kilogramo o volumen" autocomplete="off">
                 <input class="campo" name="precio" type="number" placeholder="Precio actual por unidad o kilo" autocomplete="off">
-                <input type="number" id="cantidad" name="cantidad" placeholder="Cantidad disponible" required>
+                <input id="cantidad" name="cantidad" type="number" placeholder="Cantidad disponible" required>
 
                 <input id="agregar-product" type="submit" name="agregar" value="Agregar producto">
+                <input id="update-product" type="submit" name="update" value="Actualizar producto">
                 <input id="boton-inventario" type="button" value="Ver inventario" onclick="location.href='../php/inventariolista.php';">
 
             </div>
