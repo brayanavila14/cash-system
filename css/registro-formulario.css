@@ -109,7 +109,7 @@ input[type="number"]::-webkit-inner-spin-button{
     font-weight: bold;
     opacity: 1;
     transition: opacity 3s ease-in-out, transform 3s ease-in-out;
-    animation: saltar 3s ease-in-out, agitarse 3s ease-out;
+    animation: saltar 3s ease-in-out;
     animation-fill-mode: forwards;
 }
 @keyframes saltar {
@@ -123,15 +123,4 @@ input[type="number"]::-webkit-inner-spin-button{
         transform: translateY(0);
         opacity: 0;
     }
-    }
-@keyframes agitarse{
-    0% {
-        transform: rotate(0.3deg);
-    }
-    50% {
-        transform: rotate(-0.3deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-} 
+}

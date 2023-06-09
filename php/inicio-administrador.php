@@ -1,16 +1,27 @@
 <?php
-        session_start();
+session_start();
 
-        if (!$_SESSION['nombre']) {
-            header("Location: ../index.php");
-            exit;
 
-            // Verificar si existe un mensaje en la variable de sesión
-        } elseif (isset($_SESSION['mensaje'])) {
-            echo $_SESSION['mensaje'];
-            unset($_SESSION['mensaje']); // Limpiar el mensaje de la variable de sesión para que no se muestre nuevamente en futuras visitas
-            }
-    ?>
+if (!$_SESSION['nombre']) {
+    header("Location: ../index.php");
+    exit;
+
+    // Verificar si existe un mensaje en la variable de sesión
+} elseif (isset($_SESSION['mensaje'])) {
+    echo $_SESSION['mensaje'];
+    unset($_SESSION['mensaje']); // Limpiar el mensaje de la variable de sesión para que no se muestre nuevamente en futuras visitas
+    }
+
+if (isset($_POST['cerrar'])) {
+    // Destruir la sesión actual
+    session_destroy();
+
+    // Redireccionar al inicio de sesión
+    header("Location: ../index.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +32,9 @@
     <title>Inicio - sistema de caja registradora</title>
 </head>
 <body>
-    <input class="sesionclose" type="submit" value="Salir">
+    <form method="post">
+        <input name="cerrar" class="sesionclose" type="submit" value="Salir">
+    </form>
     <div class="contenedor">
         <div class="opciones">
             <div class="opcion inventario">
@@ -39,10 +52,8 @@
             </div>
         </div>
     </div>
-    <script src="../js/funcionextras.js"></script>
     <?php
     include("base-de-datos.php");
     ?>
-
 </body>
 </html>
