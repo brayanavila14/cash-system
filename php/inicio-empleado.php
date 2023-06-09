@@ -35,15 +35,15 @@ if (isset($_POST['cerrar'])) {
         <input name="cerrar" class="sesionclose" type="submit" value="Salir">
     </form>
     <div class="contenedor">
-        <a href="caja.html"><button><img src="../imagenes/caja-registradora.png"><p>Caja</p></button></a>
+        <div class="opcion">
+            <a href="caja.php">
+                <img src="../imagenes/caja-registradora.png">
+                <h5>Caja registradora</h5>
+            </a>
+        </div>
     </div>
-    <div class="contenedor">
-            <div class="opcion">
-                <a href="caja.php">
-                    <img src="../imagenes/caja-registradora.png">
-                    <h5>Caja registradora</h5>
-                </a>
-            </div>
-    <script src="../js/menuoculto.js"></script>
+    <?php
+    include("base-de-datos.php");
+    ?>
 </body>
 </html>
