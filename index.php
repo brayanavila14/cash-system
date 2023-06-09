@@ -27,8 +27,6 @@
     </div>
     <?php
 
-    session_start();
-
     include("php/validar.php"); 
     // Verificar si existe un mensaje en la variable de sesión
     if (isset($_SESSION['mensaje'])) {
