@@ -8,6 +8,7 @@
     <title>Registro empleado</title>
 </head>
 <body>
+<input class="volver" type="button" value="Volver" onclick="location.href='registro.php';">
     <div class="contenedor">
         <form id="formulario" method="post">
             <h1 class="tittle">Registro</h1>

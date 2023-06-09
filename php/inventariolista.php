@@ -8,6 +8,7 @@
     <title>Inventario</title>
 </head>
 <body>
+    <input class="volver" type="button" value="Volver" onclick="location.href='inventario.php';">
     <div class="encabezado">   
         <h2>Inventario</h2>
     </div>

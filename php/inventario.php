@@ -8,6 +8,7 @@
     <title>Inventario</title>
 </head>
 <body>
+    <input class="volver" type="button" value="Volver" onclick="location.href='inicio-administrador.php';">
     <div class="contenedor">
         <h1 class="tittle">Registro de Productos</h1>        
             <div class="contenido">
