@@ -3,10 +3,7 @@ session_start();
 
 include("base-de-datos.php");
 
-if (empty($name) || empty($precio) || empty($cantidad)) {
-    echo '<h3 class="mensaje-error">¡No has ingresado todos los campos!</h3>';
-    exit;
-} else {
+
 
     if (isset($_POST['agregar'])) {
 
@@ -15,6 +12,11 @@ if (empty($name) || empty($precio) || empty($cantidad)) {
         $cantidad = trim($_POST['cant']);
 
         $newnombre_empresa = str_replace(" ", "_", $_SESSION['empresa']);
+
+        if (empty($name) || empty($precio) || empty($cantidad)) {
+            echo '<h3 class="mensaje-error">¡No has ingresado todos los campos!</h3>';
+            exit;
+        }
 
         // Verificar si el producto ya está registrado
         $consultaproduct = "SELECT * FROM inventario_" . $newnombre_empresa . " WHERE nombre_producto ='$name' LIMIT 1";
@@ -44,6 +46,11 @@ if (empty($name) || empty($precio) || empty($cantidad)) {
         $cantidad = trim($_POST['cant']);
 
         $newnombre_empresa = str_replace(" ", "_", $_SESSION['empresa']);
+
+        if (empty($name) || empty($precio) || empty($cantidad)) {
+            echo '<h3 class="mensaje-error">¡No has ingresado todos los campos!</h3>';
+            exit;
+        }
         // Verificar si el producto ya está registrado
         $consultaproduct = "SELECT * FROM inventario_" . $newnombre_empresa . " WHERE nombre_producto ='$name' LIMIT 1";
         $resultadoproduct = mysqli_query($conexion, $consultaproduct);
@@ -64,7 +71,6 @@ if (empty($name) || empty($precio) || empty($cantidad)) {
             exit;
         }
     }
-}
 ?>
 
 
