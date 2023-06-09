@@ -56,7 +56,7 @@ include("base-de-datos.php");
         $resultadoproduct = mysqli_query($conexion, $consultaproduct);
 
         if (mysqli_num_rows($resultadoproduct) > 0) {
-            $actualizar = "UPDATE inventario_" . $newnombre_empresa . " SET nombre_producto='$name', precio_actual='$precio' WHERE nombre_producto='$name'";
+            $actualizar = "UPDATE inventario_" . $newnombre_empresa . " SET nombre_producto='$name', precio_actual='$precio', cantidad_disponible='$cantidad' WHERE nombre_producto='$name'";
             $resultadoactualizar = mysqli_query($conexion, $actualizar);
 
             if ($resultadoactualizar) {
