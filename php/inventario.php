@@ -30,7 +30,7 @@
                 <input id="id" class="campo" name="id" type="text" value="<?php echo $idproduct; ?>" readonly>
                 <input class="campo" name="nombre" type="text" placeholder="Nombre por kilogramo o volumen" autocomplete="off">
                 <input class="campo" name="precio" type="number" placeholder="Precio actual por unidad o kilo" autocomplete="off">
-                <input id="cantidad" name="cantidad" type="number" placeholder="Cantidad disponible" required>
+                <input id="cantidad" name="cantidad" type="number" placeholder="Cantidad disponible">
 
                 <input id="agregar-product" type="submit" name="agregar" value="Agregar producto">
                 <input id="update-product" type="submit" name="update" value="Actualizar producto">
