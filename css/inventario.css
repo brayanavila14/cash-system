@@ -96,7 +96,7 @@ input[type="number"]::-webkit-inner-spin-button{
     color: #ff4242;
     background-color: #ffbaba;
 }
-.mensaje-error, .mensaje-exito {
+.mensaje-error{
     position: fixed;
     top: 5%;
     left: 32%;
@@ -115,8 +115,22 @@ input[type="number"]::-webkit-inner-spin-button{
     animation-fill-mode: forwards;
 }
 .mensaje-exito{
+    position: fixed;
+    top: 5%;
+    left: 32%;
+    width: 36%;
+    text-align: center;
+    background-color: #C2E5FF;
     background-color: #38b759;
     border: 1px solid #38b759;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 3s ease-in-out, transform 3s ease-in-out;
+    animation: saltar 3s ease-in-out;
+    animation-fill-mode: forwards;
 }
 @keyframes saltar {
     0% {

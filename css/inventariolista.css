@@ -39,53 +39,89 @@ body {
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
 }
 .arregloinicial{
-    font-size: 120%;
-    padding-left: 75px;
+    font-size: 140%;
+    padding-left: 150px;
 }
-.text1{
-    font-size: 120%;
-    padding-left: 195px;
+.texttittle{
+    font-size: 140%;
+    padding-left: 250px;
 }
-.text2{
-    font-size: 120%;
-    padding-left: 185px;
-}
+
 .arreglofinal{
-    font-size: 120%;
-    padding-left: 155px;
+    font-size: 140%;
+    padding-left: 220px;
 }
 .inventario {
     border-radius: 10px;
-    padding: 25px;
     font-size: 130%;
     display: flex;
 }
-#idproduct{
-    text-align: center;
-    margin-left: 5px;
-    padding-left: 130px;
-    padding-right: 130px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-}
 #nameproduct{
     text-align: center;
-    padding-left: 150px;
-    padding-right: 130px;
+    width: 45%;
     padding-bottom: 5px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.7);
 }
 #precioproduct{
     text-align: center;
-    padding-left: 130px;
-    padding-right: 130px;
+    width: 23%;
     padding-bottom: 5px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.7);
 }
 #cantproduct{
     text-align: center;
-    padding-left: 130px;
-    padding-right: 160px;
+    width: 40%;
     padding-bottom: 5px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+}
+.estado {
+    position: fixed;
+    top: 1%;
+    right: 2%;
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.estado p {
+    font-family: especial;
+    font-size: 60%;
+    margin: 0;
+}
+.bien {
+    color: #38b759;
+    background-color: #c2f0c2;
+}
+.mal {
+    color: #ff4242;
+    background-color: #ffbaba;
+}
+.mensaje-error {
+    position: fixed;
+    top: 5%;
+    left: 32%;
+    width: 36%;
+    text-align: center;
+    background-color: #C2E5FF;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 3s ease-in-out, transform 3s ease-in-out;
+    animation: saltar 3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes saltar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
 }
