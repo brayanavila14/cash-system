@@ -37,6 +37,7 @@ if (isset($_POST['ingresar'])) {
         } else {
             $info2 = mysqli_fetch_assoc($resultadoempleado);
             if ($info2 && $info2['password'] === $password) {
+                $_SESSION['empresa'] = $nombre_empresa;
                 $_SESSION['nombre'] = $name;
                 $_SESSION['contraseña'] = $password;
                 $_SESSION['mensaje'] = '<div class="mensaje-exito">¡Bienvenido, ' . $name . '!</div>';

@@ -30,13 +30,6 @@
     session_start();
 
     include("php/validar.php"); 
-    
-    // Verificar si se le dio click al botón "Registrar"
-    if (isset($_POST['registrar'])) {
-        
-        $_SESSION['inicio'] = true; // Crear sesión con nombre "inicio" y valor true
-    }
-
     // Verificar si existe un mensaje en la variable de sesión
     if (isset($_SESSION['mensaje'])) {
     echo $_SESSION['mensaje'];

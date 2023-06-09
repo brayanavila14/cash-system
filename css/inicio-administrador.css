@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -8,129 +8,89 @@
     font-family: cuerpo;
     src: url(../fuentes/BrunoAceSC-Regular.ttf);
 }
-body{
+body {
     width: 100%;
     height: 100%;
+    background-color: #f2f8ff;
 }
-.contenedor{
-    display: grid;
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 5%;
-    background-color: darkslategrey;
-    border: 3px outset rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
-}
-.contenedor a{
-    width: 50%;
-    margin-left: 25%;
-    margin-bottom: 13%;
-    margin-top: 13%;
-    border-radius: 20px;
-}
-.contenedor a button{
-    background-color: aquamarine;
-    width: 100%;
-    font-size: 180%;
-    border-radius: 20px;
-    cursor: pointer;
-}
-.contenedor a button img{
-    float: left;
-    margin-top: 5px;
-    margin-left: 50px;
-    margin-bottom: 5px;
-}
-.contenedor a button p{
-    margin-right: 30px;
-    margin-top: 10px;
-}
-hr{
-    width: 80%;
-    margin-left: 10%;
-}
-.imagenlogo{
-    height: 40px;
-    width: 40px;
-    position: fixed;
-    top: 2%;
-    right: 2%;
-    border-radius: 50%;
-    border: 1px rgba(0, 0, 0, 0.6) outset;
-    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.6);
-}
-.menuoculto{
-    position: fixed;
-    top: 10%;
-    right: 2%;
-    background-color: rgb(220, 220, 220);
-    width: 18%;
-    border: 1px rgba(0, 0, 0, 0.8) outset;
-    border-radius: 10px;
-    display: none;
-}
-.menuoculto img{
-    width: 96%;
-    height: 100px;
-    margin-top: 5px;
-    margin-left: 2%;
-    border-radius: 5px;
-    border: 1px rgba(0, 0, 0, 0.6) unset;
-}
-.menuoculto h3{
-    font-size: 13px;
+.contenedor {
+    background-color: #aecefa;
+    width: 40%;
+    margin: 5% auto;
+    padding: 10px;
     text-align: center;
-    margin-top: 5px;
-    margin-bottom: 2px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
-.cargo{
-    text-align: center;
-    margin-bottom: 5px;
+.opciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.opc{
-    width: 145px;
-    margin-top: 10px;
-    padding-left: 5px;
-    margin-bottom: 10px;
-    margin-left: 43px;
-    margin-right: 50px;
+.opcion {
+    margin: 25px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: #82a2c9;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
 }
-.cuenta{
-    margin-left: 50px;
-}
-.cerrar{
-    padding-left: 23px;
-}
-.opc a:hover{
-    background-color: rgb(78, 78, 78, 0.6);
-    border-radius: 10px;
-    color: white;
-}
-.opc a{
+.opcion a{
     text-decoration: none;
     color: black;
+}
+.opcion:hover {
+    transform: scale(1.05);
+    transition: 0.8s;
+    background-color: #f2f8ffd0;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6);
+}
+.inventario{
+    padding: 35px 55px;
+}
+.opcion img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+.opcion h5 {
+    margin: 0;
+    font-size: 12px;
+    text-align: center;
+}
+.imagenlogo{
+    position: fixed;
+    top: 10%;
+    left: 2%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 .menuvisto{
     display: block;
 }
-.mensaje-exito {
+.menuoculto{
+    display: none;
+}
+.estado {
     position: fixed;
-    top: 5%;
-    left: 32%;
-    width: 36%;
-    text-align: center;
-    background-color: #38b759;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    opacity: 1;
-    transition: opacity 3s ease-in-out, transform 3s ease-in-out;
-    animation: saltar 3s ease-in-out;
-    animation-fill-mode: forwards;
+    top: 4%;
+    right: 2%;
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.estado p {
+    font-family: especial;
+    font-size: 70%;
+    margin: 0;
+}
+.bien {
+    color: #38b759;
+    background-color: #c2f0c2;
+}
+.mal {
+    color: #ff4242;
+    background-color: #ffbaba;
 }
 @keyframes saltar {
 0% {
