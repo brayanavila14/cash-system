@@ -1,16 +1,26 @@
 <?php
-        session_start();
+session_start();
 
-        if (!$_SESSION['nombre']) {
 
-            header("Location: ../index.php");
-            exit;
-            // Verificar si existe un mensaje en la variable de sesión
-        } elseif (isset($_SESSION['mensaje'])) {
-            echo $_SESSION['mensaje'];
-            unset($_SESSION['mensaje']); // Limpiar el mensaje de la variable de sesión para que no se muestre nuevamente en futuras visitas
-            }
-    ?>
+if (!$_SESSION['nombre']) {
+    header("Location: ../index.php");
+    exit;
+
+    // Verificar si existe un mensaje en la variable de sesión
+} elseif (isset($_SESSION['mensaje'])) {
+    echo $_SESSION['mensaje'];
+    unset($_SESSION['mensaje']); // Limpiar el mensaje de la variable de sesión para que no se muestre nuevamente en futuras visitas
+    }
+
+if (isset($_POST['cerrar'])) {
+    // Destruir la sesión actual
+    session_destroy();
+
+    // Redireccionar al inicio de sesión
+    header("Location: ../index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,21 +31,19 @@
     <title>Inicio - sistema de caja registradora</title>
 </head>
 <body>
-    <div class="menu">
-        <img class="imagenlogo" src="../imagenes/yo .jpg" onclick="btn()">
-        <div class="menuoculto">
-            <img src="../imagenes/yo .jpg">
-            <h3>Brayan David Avila Orozco</h3>
-            <h5 class="cargo">Empleado</h6>
-            <hr>
-            <h6 class="opc"><a href="cambio-de-contra.php">Cambiar contraseña</a></h6>
-            <h6 class="opc cuenta"><a href="cambio-de-cuenta.html">Cambiar de cuenta</a></h6>
-            <h6 class="opc cerrar"><a href="login.html">Cerrar sesión</a></h6>
-        </div>
-    </div>
+<form method="post">
+        <input name="cerrar" class="sesionclose" type="submit" value="Salir">
+    </form>
     <div class="contenedor">
         <a href="caja.html"><button><img src="../imagenes/caja-registradora.png"><p>Caja</p></button></a>
     </div>
+    <div class="contenedor">
+            <div class="opcion">
+                <a href="caja.php">
+                    <img src="../imagenes/caja-registradora.png">
+                    <h5>Caja registradora</h5>
+                </a>
+            </div>
     <script src="../js/menuoculto.js"></script>
 </body>
 </html>

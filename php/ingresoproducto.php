@@ -3,9 +3,9 @@ session_start();
 
 include("base-de-datos.php");
 
-$name = mysqli_real_escape_string($conexion, trim($_POST['nombre']));
-$precio = mysqli_real_escape_string($conexion, trim($_POST['precio']));
-$cantidad = mysqli_real_escape_string($conexion, trim($_POST['cantidad']));
+$name = trim($_POST['nombre']);
+$precio = trim($_POST['precio']);
+$cantidad = trim($_POST['cantidad']);
 
 $newnombre_empresa = str_replace(" ", "_", $_SESSION['empresa']);
 
