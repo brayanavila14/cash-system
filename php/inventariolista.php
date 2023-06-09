@@ -29,25 +29,25 @@
 
         // Verificar si se encontraron registros
         if (mysqli_num_rows($resultado) > 0) {
-        // Iterar sobre los registros y mostrarlos
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-            $nombre = $fila['nombre_producto'];
-            $precio = $fila['precio_actual'];
-            $cantidad = $fila['cantidad_disponible'];
+            // Iterar sobre los registros y mostrarlos
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                $nombre = $fila['nombre_producto'];
+                $precio = $fila['precio_actual'];
+                $cantidad = $fila['cantidad_disponible'];
 
-            // Mostrar los datos en el HTML
-            echo '<div class="inventario">';
-            echo '<div id="nameproduct">';
-            echo '<p class="nombre">' . $nombre . '</p>';
-            echo '</div>';
-            echo '<div id="precioproduct">';
-            echo '<p class="precio">$' . $precio . '</p>';
-            echo '</div>';
-            echo '<div id="cantproduct">';
-            echo '<p class="cantidad">' . $cantidad . '</p>';
-            echo '</div>';
-            echo '</div>';
-        }
+                // Mostrar los datos en el HTML
+                echo '<div class="inventario">';
+                echo '<div id="nameproduct">';
+                echo '<p class="nombre">' . $nombre . '</p>';
+                echo '</div>';
+                echo '<div id="precioproduct">';
+                echo '<p class="precio">$' . $precio . '</p>';
+                echo '</div>';
+                echo '<div id="cantproduct">';
+                echo '<p class="cantidad">' . $cantidad . '</p>';
+                echo '</div>';
+                echo '</div>';
+            }
         } else {
         echo '<h1 class="mensaje-error">No hay productos en el inventario.</h1>';
         }

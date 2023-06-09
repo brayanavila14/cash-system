@@ -45,7 +45,7 @@ if (isset($_POST['cerrar'])) {
             </div>
             <hr>
             <div class="opcion caja">
-                <a href="caja.php">
+                <a href="">
                     <img src="../imagenes/caja-registradora.png">
                     <h5>Caja registradora</h5>
                 </a>

@@ -10,36 +10,42 @@
 <body>
 <div class="caja-registradora">
     <h1>Caja Registradora</h1>
-
-    <div class="contenedor">
-        <div class="campo">
-            <h4>Nombre del Producto</h4>
-            <input type="text" placeholder="Ingrese el nombre del producto" name="nombre">
-        </div>
-        <div class="campo">
+    <form method="post">
+        <div class="contenedor">
+            <div class="campo">
+                <h4>Nombre del Producto</h4>
+                <input type="text" placeholder="Ingrese el nombre del producto" name="nombre">
+            </div>
+            <div class="campo">
             <h4>Precio</h4>
-            <input type="number" placeholder="Ingrese el precio" readonly name="precio">
+                <input type="number" placeholder="Ingrese el precio" readonly name="precio" id="precio">
+            </div>
+            <div class="campo">
+                <h4>Cantidad</h4>
+                <input type="number" placeholder="Ingrese la cantidad" name="cantidad">
+            </div>
         </div>
-        <div class="campo">
-            <h4>Cantidad</h4>
-            <input type="number" placeholder="Ingrese la cantidad" name="cantidad">
+        <div class="botones">
+            <input type="submit" name="agregar" value="Agregar">
+            <input type="submit" name="limpiar" value="Limpiar">
         </div>
-    </div>
-    <div class="botones">
-        <input type="submit" name="agregar" value="Agregar">
-        <input type="submit" name="limpiar" value="Limpiar">
+    </form>
+    <div class="footer">
+        <h4>Total</h4>
+        <input type="number" placeholder="Total" readonly name="total" id="total">
+        <h4>Pago</h4>
+        <input type="number" placeholder="Efectivo" name="efectivo" id="efectivo">
+        <h4>Devuelta</h4>
+        <input type="number" placeholder="Devuelta" readonly name="devuelta" id="devuelta">
+        
+        <input type="submit" name="pagar" value="Pagar">
+        <input type="submit" name="cancelar" value="Cancelar">
     </div>
 </div>
-        <div class="footer">
-            <h4>Total</h4>
-            <input type="number" placeholder="Total" readonly name="total">
-            <h4>Pago</h4>
-            <input type="number" placeholder="Efectivo" readonly name="efectivo">
-            <h4>Devuelta</h4>
-            <input type="number" placeholder="Devuelta" readonly name="devuelta">
-            
-            <input type="submit" name="pagar" value="Pagar">
-            <input type="submit" name="cancelar" value="Cancelar">
-        </div>
+<?php
+include("cajaregistradora.php.php");
+?>
+<script src="../js/caja.js"></script>
 </body>
 </html>
+
